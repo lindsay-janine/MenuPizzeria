@@ -1,0 +1,132 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #1D202B;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+}
+
+.contenedor {
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+	padding: 40px 0;
+
+    /* display: flex;
+    gap: 20px; */
+
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* define el número y tamaño de las columnas __ la primera necesita 3 partes del espacio mientras que 1fr ocupa solo 1 parte del espacio */
+    gap: 20px; /* línea de espacio */
+}
+
+.titulo {
+	font-size: 24px;
+	padding: 20px 0;
+}
+
+.contenedor-pizzas {
+    /*width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; */
+	
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Se define tamaño y cantidad de columnas; aquí se definen 3 columnas del mismo tamaño */
+    gap: 20px;
+}
+
+.card {
+	border-radius: 10px;
+	min-height: 200px;
+	font-weight: bold;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+    /*width: 33.33%;
+    width: calc(33.33% - 20px); */
+}
+
+.card .textos {
+	height: 100%;
+
+	/*display: flex;
+    flex-direction: column;
+    justify-content: space-between;*/
+
+    display: grid;
+    grid-template-rows: 1fr auto; /* define el tamaño de las filas __ en este caso la primera fila tomará todo el espacio disponible; mientras que el auto es automático de acuerdo a lo que necesite el texto*/
+}
+
+.banner {
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+	background-size: cover;
+	background-position: center center;
+
+    /*width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+
+    display: grid;
+    grid-template-rows: auto auto auto; /* crea 3 filas con el tamaño automático de acuerdo al contenido */ 
+    align-items: center;  /* centra verticalmente el contenido */
+}
+
+.banner ul {
+	list-style: none;
+}
+
+.banner ul li {
+	margin: 15px;
+	font-weight: bold;
+}
+
+.banner .boton {
+	background: #FFD600;
+	display: block;
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+	padding: 10px;
+	border: none;
+	border-radius: 100px;
+	font-family: 'Roboto', sans-serif;
+	cursor: pointer;
+}
+
+
+/* Aplicar estilos específios cuando la pantalla tiene anchos máximos */
+
+@media screen and (max-width: 900px) {
+	.contenedor{
+        grid-template-columns: 1fr; /* establece que cuendo el ancho de la pantalla sea =< a 900px para una sola columna*/
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+	.card{
+        min-height: 150px;
+        padding: 15px;
+        /* cuando el cancho sea =<700px */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .banner{
+        grid-template-rows: auto auto; /* auto izq-derecha  __  auto arriba-abajo  */
+
+        /* banner principal va a cambiar su estructura para tener solo 2 filas en lugar de 3 */
+    }
+}
